@@ -10,22 +10,23 @@ const Shop = () => {
     const [cart, setCart] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
+    const size = 10;
 
     // products to be rendered on the UI
     const [displayProducts, setDisplayProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/products')
+        fetch(`http://localhost:3001/products?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data.products);
                 setDisplayProducts(data.products);
 
                 const count = data.count;
-                const pageNumber = Math.ceil(count/10);
+                const pageNumber = Math.ceil(count/size);
                 setPageCount(pageNumber);
             });
-    }, []);
+    }, [page]);
 
     useEffect(() => {
         if (products.length) {
@@ -104,7 +105,7 @@ const Shop = () => {
                                 className={number === page ? 'selected' : ''}
                                 key={number}
                                 onClick={() => setPage(number)}
-                            >{number}
+                            >{number + 1}
                             </button>)
                         }
                     </div>
