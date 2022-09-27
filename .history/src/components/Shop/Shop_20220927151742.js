@@ -9,7 +9,6 @@ const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     const [pageCount, setPageCount] = useState(0);
-    const [page, setPage] = useState(0);
 
     // products to be rendered on the UI
     const [displayProducts, setDisplayProducts] = useState([]);
@@ -95,19 +94,6 @@ const Shop = () => {
                         >
                         </Product>)
                     }
-
-                    {/* pagination */}
-                    <div className="pagination">
-                        {
-                            [...Array(pageCount).keys()]
-                            .map(number => <button
-                                className={number === page ? 'selected' : ''}
-                                key={number}
-                                onClick={() => setPage(number)}
-                            >{number}
-                            </button>)
-                        }
-                    </div>
                 </div>
                 <div className="cart-container">
                     <Cart cart={cart}>
