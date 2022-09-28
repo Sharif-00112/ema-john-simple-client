@@ -8,7 +8,7 @@ import useCart from '../../hooks/useCart';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useCart();
+    const [cart, setCart] = useCart(products);
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
     const size = 10;
@@ -29,21 +29,21 @@ const Shop = () => {
             });
     }, [page]);
 
-    // useEffect(() => {
-    //     if (products.length) {
-    //         const savedCart = getStoredCart();
-    //         const storedCart = [];
-    //         for (const key in savedCart) {
-    //             const addedProduct = products.find(product => product.key === key);
-    //             if (addedProduct) {
-    //                 const quantity = savedCart[key];
-    //                 addedProduct.quantity = quantity;
-    //                 storedCart.push(addedProduct);
-    //             }
-    //         }
-    //         setCart(storedCart);
-    //     }
-    // }, [products])
+    useEffect(() => {
+        if (products.length) {
+            const savedCart = getStoredCart();
+            const storedCart = [];
+            for (const key in savedCart) {
+                const addedProduct = products.find(product => product.key === key);
+                if (addedProduct) {
+                    const quantity = savedCart[key];
+                    addedProduct.quantity = quantity;
+                    storedCart.push(addedProduct);
+                }
+            }
+            setCart(storedCart);
+        }
+    }, [products])
 
     //quantity problem solved
     const handleAddToCart = (product) => {

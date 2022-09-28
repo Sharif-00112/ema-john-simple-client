@@ -4,7 +4,6 @@ import { getStoredCart } from "../utilities/fakedb";
 
 const useCart = () =>{
     const [cart, setCart] =useState([]);
-
     useEffect(() =>{
         const savedCart = getStoredCart();
         // console.log(savedCart);
@@ -18,21 +17,21 @@ const useCart = () =>{
         })
         .then(res => res.json())
         .then(products => {
-            // console.log(products);
+            console.log(products);
 
-            if(products.length){
-                const storedCart = [];
-                for(const key in savedCart){
-                    const addedProduct = products.find(product => product.key === key);
-                    if (addedProduct){
-                        //set quantity
-                        const quantity = savedCart[key];
-                        addedProduct.quantity = quantity;
-                        storedCart.push(addedProduct);
-                    }
-                }
-                setCart(storedCart);
-            }
+            // if(products.length){
+            //     const storedCart = [];
+            //     for(const key in savedCart){
+            //         const addedProduct = products.find(product => product.key === key);
+            //         if (addedProduct){
+            //             //set quantity
+            //             const quantity = savedCart[key];
+            //             addedProduct.quantity = quantity;
+            //             storedCart.push(addedProduct);
+            //         }
+            //     }
+            //     setCart(storedCart);
+            // }
         })
 
     },[])

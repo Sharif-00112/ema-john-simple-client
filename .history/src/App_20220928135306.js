@@ -51,9 +51,9 @@ function App() {
                 <UpdateName></UpdateName>
               </PrivateRoute>
             }> </Route>
-            <Route exact path = '/placeorder' element = {
+            <Route exact path = '/updatename' element = {
               <PrivateRoute>
-                <PlaceOrder></PlaceOrder>
+                <UpdateName></UpdateName>
               </PrivateRoute>
             }> </Route>
           <Route exact path = '*' element={<NotFound/>}/>
