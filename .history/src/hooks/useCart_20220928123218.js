@@ -4,7 +4,6 @@ import { getStoredCart } from "../utilities/fakedb";
 
 const useCart = () =>{
     const [cart, setCart] =useState([]);
-
     useEffect(() =>{
         const savedCart = getStoredCart();
         // console.log(savedCart);
@@ -18,7 +17,7 @@ const useCart = () =>{
         })
         .then(res => res.json())
         .then(products => {
-            // console.log(products);
+            console.log(products);
 
             if(products.length){
                 const storedCart = [];

@@ -34,10 +34,7 @@ const OrderReview = () => {
         })
         .then(res => res.json())
         .then(result => {
-            // console.log(result);
-            if(result.insertedId){
-                alert('Order Placed');
-            }
+            console.log(result);
         })
 
         navigation('/placeorder');

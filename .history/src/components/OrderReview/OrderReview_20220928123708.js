@@ -5,11 +5,9 @@ import Cart from '../Cart/Cart'
 import ReviewItem from '../ReviewItem/ReviewItem';
 import { clearTheCart, deleteFromDb } from '../../utilities/fakedb';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
 
 const OrderReview = () => {
     const [cart, setCart] = useCart();
-    const {user} = useAuth();
 
     const handleRemove = key =>{
         console.log(key);
@@ -19,27 +17,7 @@ const OrderReview = () => {
     }
 
     const navigation = useNavigate();
-
     const handlePlaceOrder = () =>{
-        const submittedCart = {
-            userData: user.email,
-            cartData: cart
-        }
-        fetch('http://localhost:3001/orders', {
-            method: 'POST',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(submittedCart)
-        })
-        .then(res => res.json())
-        .then(result => {
-            // console.log(result);
-            if(result.insertedId){
-                alert('Order Placed');
-            }
-        })
-
         navigation('/placeorder');
         setCart([]);
         clearTheCart();
