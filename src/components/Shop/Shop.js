@@ -16,7 +16,7 @@ const Shop = () => {
     const [displayProducts, setDisplayProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3001/products?page=${page}&&size=${size}`)
+        fetch(`http://localhost:3005/products?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data.products);
