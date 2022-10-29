@@ -15,7 +15,7 @@ const Header = () => {
                 <Link to="/shop">Shop</Link>
                 <Link to="/review">Order Review</Link>
                 <Link to="/inventory">Manage Inventory</Link>
-                {user.email && <Link to="/orders">Orders</Link>}
+                {/* <button className='btn btn-secondary m-2'><Link to="/Login">Login</Link></button> */}
 
                 {
                     user.email ? 

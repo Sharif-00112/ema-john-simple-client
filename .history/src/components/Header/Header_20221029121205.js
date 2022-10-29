@@ -15,13 +15,15 @@ const Header = () => {
                 <Link to="/shop">Shop</Link>
                 <Link to="/review">Order Review</Link>
                 <Link to="/inventory">Manage Inventory</Link>
-                {user.email && <Link to="/orders">Orders</Link>}
+                <button className='btn btn-secondary m-2'><Link to="/Login">Login</Link></button>
 
                 {
                     user.email ? 
-                        <button onClick={logout} className='btn btn-secondary m-2'>Logout</button>
-                        :
                         <button className='btn btn-secondary m-2'><Link to="/Login">Login</Link></button>
+                        :
+                        <button onClick={logout} className='btn btn-secondary p-2 mt-3 mx-2'>Logout</button>
+
+
                 }
             </nav>
         </div>

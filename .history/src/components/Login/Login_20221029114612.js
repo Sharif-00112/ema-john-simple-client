@@ -4,7 +4,7 @@ import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
     //destructuring hooks
-    const {signInUsingGoogle, signInUsingGithub, signInUsingFacebook, signInUsingTwitter, user, error, handleLoginSubmitBtn, handleEmailChange, handlePasswordChange, logout } = useAuth();
+    const {signInUsingGoogle, signInUsingGithub, signInUsingFacebook, signInUsingTwitter, user, error, handleLoginSubmitBtn, handleEmailChange, handlePasswordChange } = useAuth();
     
     return ( 
         <div className='w-75 mx-auto'>
@@ -62,8 +62,8 @@ const Login = () => {
                     <img src={user.photoURL} alt="" />
                     <br />
                     <button className='btn btn-secondary p-2 mt-3 mx-2'><Link className='text-decoration-none text-white' to="/completeprofile"><u>Complete Profile</u></Link></button>
-
-                    <button onClick={logout} className='btn btn-secondary p-2 mt-3 mx-2'>Logout</button>
+                    
+                    <button className='btn btn-secondary p-2 mt-3 mx-2'>Logout</button>
                 </div>
             }
 
