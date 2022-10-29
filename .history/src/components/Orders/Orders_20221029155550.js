@@ -1,4 +1,3 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
@@ -9,7 +8,7 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() =>{
-        fetch(`http://localhost:3005/orders?email=${user.email}`)
+        fetch('http://localhost:3005/orders')
         .then(res => res.json())
         .then(data => setOrders(data));
     } ,[])
@@ -18,13 +17,6 @@ const Orders = () => {
         <div>
             <h2>You have placed: {orders.length} Orders</h2>
 
-            <ul>
-                {
-                    orders.map(order => <li
-                        key = {order._id}
-                    >Ordered by : {order.userData}</li>)
-                }
-            </ul>
         </div>
     );
 };

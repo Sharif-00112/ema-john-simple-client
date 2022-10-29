@@ -9,7 +9,7 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() =>{
-        fetch(`http://localhost:3005/orders?email=${user.email}`)
+        fetch('http://localhost:3005/orders')
         .then(res => res.json())
         .then(data => setOrders(data));
     } ,[])

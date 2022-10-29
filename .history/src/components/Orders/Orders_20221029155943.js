@@ -9,7 +9,7 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() =>{
-        fetch(`http://localhost:3005/orders?email=${user.email}`)
+        fetch('http://localhost:3005/orders')
         .then(res => res.json())
         .then(data => setOrders(data));
     } ,[])
@@ -22,7 +22,7 @@ const Orders = () => {
                 {
                     orders.map(order => <li
                         key = {order._id}
-                    >Ordered by : {order.userData}</li>)
+                    >{order.name} : {order.userData}</li>)
                 }
             </ul>
         </div>
