@@ -1,6 +1,6 @@
 import { useState } from "react";
 import initializeAuthentication from '../Firebase/firebase.initialize';
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, GithubAuthProvider, FacebookAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, updatePassword, sendEmailVerification, updateProfile, getIdToken, } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, GithubAuthProvider, FacebookAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, updatePassword, sendEmailVerification, updateProfile, } from "firebase/auth";
 import { useEffect } from "react";
 
 initializeAuthentication(); 
@@ -201,12 +201,6 @@ const useFirebase = () =>{
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/firebase.User
               // console.log('inside state change', user);
-
-              //JWT
-              getIdToken(user)
-              // .then(idToken => console.log(idToken))
-              .then(idToken => localStorage.setItem('idToken', idToken))
-
               setUser(user);
             } else {
               // User is signed out

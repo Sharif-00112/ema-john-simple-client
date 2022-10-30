@@ -204,8 +204,7 @@ const useFirebase = () =>{
 
               //JWT
               getIdToken(user)
-              // .then(idToken => console.log(idToken))
-              .then(idToken => localStorage.setItem('idToken', idToken))
+              .then(idToken => console.log(idToken))
 
               setUser(user);
             } else {
