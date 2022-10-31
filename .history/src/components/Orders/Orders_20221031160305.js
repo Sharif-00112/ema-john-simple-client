@@ -19,8 +19,7 @@ const Orders = () => {
                 return res.json();
             }
             else if(res.status === 401){
-                //redirect to login page (needs to learn)
-                alert('Please Login First!');
+                alert('Please Login First!')
             }
         })
         .then(data => setOrders(data));

@@ -11,7 +11,7 @@ const Orders = () => {
     useEffect(() =>{
         fetch(`http://localhost:3005/orders?email=${user.email}`, {
             headers: {
-                'authorization': `Bearer ${localStorage.getItem('idToken')}`
+                'authorization': `Bearer cdscs${localStorage.getItem('idToken')}`
             }
         })
         .then(res => {

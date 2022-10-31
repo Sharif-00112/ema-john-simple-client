@@ -19,7 +19,7 @@ const Orders = () => {
                 return res.json();
             }
             else if(res.status === 401){
-                //redirect to login page (needs to learn)
+                //redirect to login page
                 alert('Please Login First!');
             }
         })
